@@ -70,14 +70,16 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 $(".video-hover").hover(
-    function() {
-        $('video', this).get(0).play();
-    }, 
-    function() {
-        $('video', this).get(0).pause();
+            function() {
+                $('video', this).get(0).play();
+            }, 
+            function() {
+                $('video', this).get(0).pause();
+            }
+        ).each(function() {
+            $('video', this).get(0).pause();
+        });
     }
-).each(function() {
-    $('video', this).get(0).pause();
 });
 
 
