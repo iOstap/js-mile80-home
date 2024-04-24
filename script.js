@@ -26,7 +26,7 @@
   });
 
 
-  document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function() {
     if (window.innerWidth > 991) {
         gsap.config({
             nullTargetWarn: false,
@@ -63,6 +63,9 @@
                 }, 200);
             });
         });
+    }
+});
+
 
 
         $(".video-hover").hover(
