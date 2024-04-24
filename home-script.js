@@ -68,18 +68,19 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-        $(".video-hover").hover(
-            function() {
-                $('video', this).get(0).play();
-            }, 
-            function() {
-                $('video', this).get(0).pause();
-            }
-        ).each(function() {
-            $('video', this).get(0).pause();
-        });
+        /*
+$(".video-hover").hover(
+    function() {
+        $('video', this).get(0).play();
+    }, 
+    function() {
+        $('video', this).get(0).pause();
     }
+).each(function() {
+    $('video', this).get(0).pause();
 });
+*/
+
 
  
  document.addEventListener("DOMContentLoaded", (event) => {
