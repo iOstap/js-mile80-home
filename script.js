@@ -32,39 +32,41 @@ document.addEventListener("DOMContentLoaded", function() {
             nullTargetWarn: false,
         });
 
-        const headings = document.querySelectorAll('.head-type');
-        let activeHeading = null;
+        const links = document.querySelectorAll('.head-type');
 
-        headings.forEach(heading => {
-            heading.addEventListener('mouseenter', function() {
-                if (activeHeading === this) return;
-                activeHeading = this;
+        let activeLink = null;
+
+        links.forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                if (activeLink === this) return;
+                activeLink = this;
 
                 gsap.to(this.closest('.collection-item').querySelector('.video-embed'), {opacity: 1, visibility: 'visible', duration: 0.3});
 
-                headings.forEach(otherHeading => {
-                    if (otherHeading !== this) {
-                        gsap.to(otherHeading, {opacity: 0, duration: 0.3});
+                links.forEach(otherLink => {
+                    if (otherLink !== this) {
+                        gsap.to(otherLink, {opacity: 0, duration: 0.3});
                     } else {
                         gsap.to(this, {opacity: 1, duration: 0.3});
                     }
                 });
             });
 
-            heading.addEventListener('mouseleave', function() {
+            link.addEventListener('mouseleave', function() {
                 gsap.to(this.closest('.collection-item').querySelector('.video-embed'), {opacity: 0, visibility: 'hidden', duration: 0.3, delay: 0.2});
 
                 setTimeout(() => {
-                    if (activeHeading !== this) return;
-                    activeHeading = null;
-                    headings.forEach(otherHeading => {
-                        gsap.to(otherHeading, {opacity: 1, duration: 0.3});
+                    if (activeLink !== this) return;
+                    activeLink = null;
+                    links.forEach(otherLink => {
+                        gsap.to(otherLink, {opacity: 1, duration: 0.3});
                     });
                 }, 200);
             });
         });
     }
 });
+
 
 
 
