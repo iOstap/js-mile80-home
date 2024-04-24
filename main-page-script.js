@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-        /*
+
 $(".video-hover").hover(
     function() {
         $('video', this).get(0).play();
@@ -79,7 +79,7 @@ $(".video-hover").hover(
 ).each(function() {
     $('video', this).get(0).pause();
 });
-*/
+
 
 
  
