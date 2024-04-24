@@ -32,40 +32,37 @@ document.addEventListener("DOMContentLoaded", function() {
             nullTargetWarn: false,
         });
 
-        const links = document.querySelectorAll('.head-type');
+        const headings = document.querySelectorAll('.heading-hover');
+        let activeHeading = null;
 
-        let activeLink = null;
-
-        links.forEach(link => {
-            link.addEventListener('mouseenter', function() {
-                if (activeLink === this) return;
-                activeLink = this;
+        headings.forEach(heading => {
+            heading.addEventListener('mouseenter', function() {
+                if (activeHeading === this) return;
+                activeHeading = this;
 
                 gsap.to(this.closest('.collection-item').querySelector('.video-embed'), {opacity: 1, visibility: 'visible', duration: 0.3});
 
-                links.forEach(otherLink => {
-                    if (otherLink !== this) {
-                        gsap.to(otherLink, {opacity: 0, duration: 0.3});
+                headings.forEach(otherHeading => {
+                    if (otherHeading !== this) {
+                        gsap.to(otherHeading, {opacity: 0, duration: 0.3});
                     } else {
                         gsap.to(this, {opacity: 1, duration: 0.3});
                     }
                 });
             });
 
-            link.addEventListener('mouseleave', function() {
+            heading.addEventListener('mouseleave', function() {
                 gsap.to(this.closest('.collection-item').querySelector('.video-embed'), {opacity: 0, visibility: 'hidden', duration: 0.3, delay: 0.2});
 
                 setTimeout(() => {
-                    if (activeLink !== this) return;
-                    activeLink = null;
-                    links.forEach(otherLink => {
-                        gsap.to(otherLink, {opacity: 1, duration: 0.3});
+                    if (activeHeading !== this) return;
+                    activeHeading = null;
+                    headings.forEach(otherHeading => {
+                        gsap.to(otherHeading, {opacity: 1, duration: 0.3});
                     });
                 }, 200);
             });
         });
-    }
-});
 
 
 
