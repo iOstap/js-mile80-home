@@ -32,7 +32,7 @@
             nullTargetWarn: false,
         });
 
-        const headings = document.querySelectorAll('.heading-hover');
+        const headings = document.querySelectorAll('.head-type');
         let activeHeading = null;
 
         headings.forEach(heading => {
