@@ -68,6 +68,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
+
         $(".video-hover").hover(
             function() {
                 $('video', this).get(0).play();
