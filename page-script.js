@@ -69,33 +69,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-// После загрузки страницы
-$(document).ready(function() {
-    // Отложенная загрузка видео
-    lazyLoadVideos();
-
-    // При наведении на элементы с классом "video-hover"
-    $(".video-hover").hover(
-        function() {
-            $('video', this).get(0).play();
-        }, 
-        function() {
+$(".video-hover").hover(
+            function() {
+                $('video', this).get(0).play();
+            }, 
+            function() {
+                $('video', this).get(0).pause();
+            }
+        ).each(function() {
             $('video', this).get(0).pause();
-        }
-    );
+        });
+    }
 });
-
-// Функция для отложенной загрузки видео
-function lazyLoadVideos() {
-    // Инициализация плагина для ленивой загрузки видео
-    $('video.lazy').lazy();
-    
-    // После загрузки видео
-    $('video.lazy').on('loadeddata', function() {
-        // Приостановка воспроизведения видео
-        $(this).get(0).pause();
-    });
-}
 
 
 
